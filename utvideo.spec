@@ -34,6 +34,7 @@ Header files for Ut Video library.
 %prep
 %setup -q
 %patch0 -p1 .lpthread~
+cp -af %{_datadir}/automake*/* .
 
 %build
 ./configure	--enable-shared \
