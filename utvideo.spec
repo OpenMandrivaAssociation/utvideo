@@ -5,7 +5,7 @@
 Summary:	Ut Video codec suite
 Name:		utvideo
 Version:	14.2.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Source0:	%{name}-%{version}.tar.xz
