@@ -1,0 +1,34 @@
+--- utvideo-16.1.0/utv_core/ColorOrder.h.omv~	2016-06-27 13:02:34.038855496 +0200
++++ utvideo-16.1.0/utv_core/ColorOrder.h	2016-06-27 13:02:40.642894116 +0200
+@@ -2,6 +2,7 @@
+ /* $Id$ */
+ 
+ #pragma once
++#include <limits.h>
+ 
+ class CBGRColorOrder
+ {
+--- utvideo-16.1.0/utv_logl/LogWriter.cpp.omv~	2016-06-27 13:14:05.572988556 +0200
++++ utvideo-16.1.0/utv_logl/LogWriter.cpp	2016-06-27 13:18:40.629660163 +0200
+@@ -116,7 +116,11 @@ int InitializeLogWriter(void)
+ 		return -1;
+ 	}
+ 
++#if 0
+ 	sprintf(buf, "%s[%d]\n", getprogname(), getpid()); // XXX getprogname: only BSD family and MacOS
++#else
++	sprintf(buf, "utvideo[%d]\n", getpid()); // XXX getprogname: only BSD family and MacOS
++#endif
+ 	if (writeLog(buf, strlen(buf)) != strlen(buf))
+ 	{
+ 		close(fdLogSock);
+--- utvideo-16.1.0/utv_logl/LogReader.cpp.omv~	2016-06-27 13:23:01.303250519 +0200
++++ utvideo-16.1.0/utv_logl/LogReader.cpp	2016-06-27 13:24:30.856040231 +0200
+@@ -222,7 +222,6 @@ int InitializeLogReader(LogReaderOpenPro
+ 	pthread_mutex_init(&mutexLock, NULL);
+ 
+ 	memset(&sun, 0, sizeof(sun));
+-	sun.sun_len = sizeof(sun);
+ 	sun.sun_family = AF_UNIX;
+ 	if (GetLogSocketPath(sun.sun_path, _countof(sun.sun_path)) != 0)
+ 		return -1;
