@@ -5,7 +5,7 @@
 Summary:	Ut Video codec suite
 Name:		utvideo
 Version:	16.1.0
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		System/Libraries
 Source0:	http://umezawa.dyndns.info/archive/utvideo/utvideo-%{version}-src.zip
