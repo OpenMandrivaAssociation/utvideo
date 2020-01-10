@@ -36,7 +36,7 @@ Header files for Ut Video library.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 cp -af %{_datadir}/automake*/* %{SOURCE10} %{SOURCE11} .
 
 %build
