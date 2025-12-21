@@ -14,6 +14,11 @@ Patch0:		utvideo-16.1.0-compile.patch
 Source10:	configure
 Source11:	GNUmakefile
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 Ut Video Codec Suite is a multi-platform and multi-interface lossless
 video codec.
